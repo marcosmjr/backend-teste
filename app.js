@@ -62,6 +62,8 @@ app.post('/api/usuarios', async (req, res) => {
             body: JSON.stringify(req.body)
         });
 
+       console.log(resposta);
+
         const dados = await resposta.json();
         res.status(resposta.status).json(dados);
     } catch (error) {

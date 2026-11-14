@@ -11,7 +11,7 @@ app.use(cors());
 app.use(express.json());
 
 // CONFIGURAÇÃO: URL base dos microsserviços (SEM /api/login no final)
-const SERVICO_LOGIN_BASE = process.env.URL_LOGIN || 'http://back-login-production-25a854e1.up.railway.app';
+const SERVICO_LOGIN_BASE = process.env.URL_LOGIN || 'http://localhost:3002';
 
 // ==========================================
 // ROTAS DE LOGIN E USUÁRIOS (Repassadas ao back-login)

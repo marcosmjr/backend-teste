@@ -31,7 +31,7 @@ app.post('/api/login', async (req, res) => {
         res.status(resposta.status).json(dados);
     } catch (error) {
         console.error('Erro no serviço de login:', error);
-        res.status(502).json({ erro: 'Serviço de Login indisponível' });
+        res.status(502).json({ erro: 'Serviço de Login indisponível', resposta });
     }
 });
 

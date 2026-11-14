@@ -19,8 +19,9 @@ const SERVICO_LOGIN_BASE = process.env.URL_LOGIN || 'http://localhost:3002';
 
 // 1. Login
 app.post('/api/login', async (req, res) => {
+    let resposta = [];
     try {
-        const resposta = await fetch(`${SERVICO_LOGIN_BASE}/api/login`, {
+         resposta = await fetch(`${SERVICO_LOGIN_BASE}/api/login`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(req.body)

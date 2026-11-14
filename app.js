@@ -19,9 +19,9 @@ const SERVICO_LOGIN_BASE = process.env.URL_LOGIN || 'http://localhost:3002';
 
 // 1. Login
 app.post('/api/login', async (req, res) => {
-   
+   let resposta = [];
     try {
-         const resposta = await fetch(`${SERVICO_LOGIN_BASE}/api/login`, {
+         resposta = await fetch(`${SERVICO_LOGIN_BASE}/api/login`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(req.body)
@@ -31,7 +31,7 @@ app.post('/api/login', async (req, res) => {
         res.status(resposta.status).json(dados);
     } catch (error) {
         console.error('Erro no serviço de login:', error);
-        res.status(502).json({ erro: 'Serviço de Login indisponível' });
+        res.status(502).json({ erro: 'Serviço de Login indisponível', resposta });
     }
 });
 
@@ -54,8 +54,9 @@ app.post('/api/login/recuperar-senha', async (req, res) => {
 
 // 3. Cadastrar usuário
 app.post('/api/usuarios', async (req, res) => {
+   let resposta
     try {
-        const resposta = await fetch(`${SERVICO_LOGIN_BASE}/api/usuarios`, {
+        resposta = await fetch(`${SERVICO_LOGIN_BASE}/api/usuarios`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(req.body)
@@ -65,7 +66,7 @@ app.post('/api/usuarios', async (req, res) => {
         res.status(resposta.status).json(dados);
     } catch (error) {
         console.error('Erro ao cadastrar usuário:', error);
-        res.status(502).json({ erro: 'Serviço de Usuários indisponível' });
+        res.status(502).json({ erro: 'Serviço de Usuários indisponível', resposta });
     }
 });
 
